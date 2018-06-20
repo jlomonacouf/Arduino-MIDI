@@ -63,7 +63,7 @@ void loop() {
     {
     
       turnedOnA = true;
-      Serial.println("a");
+      //Serial.println("a");
       noteOn(MIDI_CHANNEL, NOTE_C4, 0x7F);
     }
     activatedA = true;
@@ -155,9 +155,9 @@ void noteOn(byte channel, byte pitch, byte velocity)
   // Ensure we're between channels 1 and 16 for a note on message
   if (channel >= 0x90 && channel <= 0x9F)
   {
-    //Serial.write(channel);
-    //Serial.write(pitch);
-    //Serial.write(velocity);
+    Serial.write(channel);
+    Serial.write(pitch);
+    Serial.write(velocity);
   }
 }
 
@@ -170,9 +170,9 @@ void noteOff(byte channel, byte pitch)
   // Ensure we're between channels 1 and 16 for a note off message
   if (channel >= 0x80 && channel <= 0x8F)
   {
-    //Serial.write(channel);
-    //Serial.write(pitch);
-    //Serial.write((byte)0x00);
+    Serial.write(channel);
+    Serial.write(pitch);
+    Serial.write((byte)0x00);
   }
 }
 
