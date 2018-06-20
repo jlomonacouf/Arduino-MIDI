@@ -9,9 +9,9 @@
 #define MIDI_CHANNEL 3
 
 CapacitiveSensor sensorA = CapacitiveSensor(7, 2);
-CapacitiveSensor sensorB = CapacitiveSensor(8, 3);
-CapacitiveSensor sensorC = CapacitiveSensor(9, 4);
-CapacitiveSensor sensorD = CapacitiveSensor(10, 5);
+//CapacitiveSensor sensorB = CapacitiveSensor(8, 3);
+//CapacitiveSensor sensorC = CapacitiveSensor(9, 4);
+//CapacitiveSensor sensorD = CapacitiveSensor(10, 5);
 //CapacitiveSensor sensorE = CapacitiveSensor(8, 3);
 
 int thresholdA = 40;
@@ -47,10 +47,10 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   long sensorValueA = sensorA.capacitiveSensor(30);
-  long sensorValueB = sensorB.capacitiveSensor(30);
-  long sensorValueC = sensorC.capacitiveSensor(30);
-  long sensorValueD = sensorD.capacitiveSensor(30);
-  //long sensorValueE = sensorE.capacitiveSensor(30);
+//long sensorValueB = sensorB.capacitiveSensor(30);
+//long sensorValueC = sensorC.capacitiveSensor(30);
+//long sensorValueD = sensorD.capacitiveSensor(30);
+//long sensorValueE = sensorE.capacitiveSensor(30);
 
 //Serial.println(sensorValueA);
 //Serial.println(sensorValueB);
@@ -63,7 +63,7 @@ void loop() {
     {
     
       turnedOnA = true;
-      //Serial.println("a");
+      Serial.println("a");
       noteOn(MIDI_CHANNEL, NOTE_C4, 0x7F);
     }
     activatedA = true;
@@ -75,7 +75,7 @@ void loop() {
     turnedOnA = false;
   }
   //Serial.println(sensorValueB);
-  if(sensorValueB > thresholdB && !turnedOnB)
+/*  if(sensorValueB > thresholdB && !turnedOnB)
   {
     if(activatedB == false)
     {
@@ -143,7 +143,6 @@ void loop() {
     turnedOnE = false;
   }
   */
-  
   delay(10);
 }
 
@@ -156,9 +155,9 @@ void noteOn(byte channel, byte pitch, byte velocity)
   // Ensure we're between channels 1 and 16 for a note on message
   if (channel >= 0x90 && channel <= 0x9F)
   {
-    Serial.write(channel);
-    Serial.write(pitch);
-    Serial.write(velocity);
+    //Serial.write(channel);
+    //Serial.write(pitch);
+    //Serial.write(velocity);
   }
 }
 
@@ -171,9 +170,9 @@ void noteOff(byte channel, byte pitch)
   // Ensure we're between channels 1 and 16 for a note off message
   if (channel >= 0x80 && channel <= 0x8F)
   {
-    Serial.write(channel);
-    Serial.write(pitch);
-    Serial.write((byte)0x00);
+    //Serial.write(channel);
+    //Serial.write(pitch);
+    //Serial.write((byte)0x00);
   }
 }
 
