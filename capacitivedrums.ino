@@ -63,7 +63,7 @@ void loop() {
     {
     
       turnedOnA = true;
-      Serial.println("a");
+      //Serial.println("a");
       noteOn(MIDI_CHANNEL, NOTE_C4, 0x7F);
     }
     activatedA = true;
